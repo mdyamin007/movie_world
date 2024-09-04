@@ -39,10 +39,10 @@ export default function Hero({ mediaType, mediaCategory }) {
 
   return (
     <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[32rem]">
-      <Carousel pauseOnHover>
+      <Carousel pauseOnHover slideInterval={3000}>
         {movies &&
           movies.map((movie, index) => (
-            <div className="relative h-full w-full">
+            <div className="relative h-full w-full" key={index}>
               <img
                 src={tmdbConfigs.backdropPath(
                   movie.backdrop_path || movie.poster_path
@@ -53,7 +53,7 @@ export default function Hero({ mediaType, mediaCategory }) {
                 <h2 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold">
                   {movie.title || movie.name}
                 </h2>
-                <div className="flex space-x-2 my-2">
+                <div className="flex space-x-2 mt-4">
                   {[...movie.genre_ids].splice(0, 2).map((genreId, index) => (
                     <span
                       key={index}
