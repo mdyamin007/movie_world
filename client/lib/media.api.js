@@ -23,7 +23,7 @@ const mediaApi = {
   },
   getDetail: async ({ mediaType, mediaId }) => {
     try {
-      const response = await protectedAPI.get(
+      const response = await api.get(
         mediaEndpoints.detail({ mediaType, mediaId })
       );
 

@@ -6,7 +6,7 @@ import tmdbConfigs from "@/config/tmdb.configs";
 import mediaApi from "@/lib/media.api";
 import routesGen from "@/lib/routesGen.js";
 
-export default function PopularMovies({ mediaType, mediaCategory }) {
+export default function PopularSeries({ mediaType, mediaCategory }) {
   const [medias, setMedias] = useState([]);
   const scrollContainerRef = useRef(null);
   const isDragging = useRef(false);
@@ -77,7 +77,7 @@ export default function PopularMovies({ mediaType, mediaCategory }) {
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-3xl font-bold dark:text-white text-black mb-6">
-        Popular Movies
+        Popular Series
       </h2>
       <div
         ref={scrollContainerRef}

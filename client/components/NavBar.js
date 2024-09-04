@@ -4,9 +4,11 @@ export default function NavBar() {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-          <span className="text-blue-700">Movie</span> World
-        </span>
+        <Link href="/">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="text-blue-700">Movie</span> World
+          </span>
+        </Link>
         <div className="flex md:order-2">
           <button
             type="button"

@@ -4,7 +4,7 @@ import { Footer } from "flowbite-react";
 
 export default function FooterComponent() {
   return (
-    <Footer container className="dark:bg-black py-4">
+    <Footer container className="dark:bg-black py-4 mt-52">
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
