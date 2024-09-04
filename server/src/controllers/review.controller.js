@@ -1,5 +1,13 @@
 import responseHandler from "../handlers/response.handler.js";
 import reviewModel from "../models/review.model.js";
+/**
+ * Creates a new review.
+ *
+ *
+ * @param {Object} req - The request object from the client, containing review data.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
 
 const create = async (req, res) => {
   try {
@@ -23,6 +31,15 @@ const create = async (req, res) => {
   }
 };
 
+/**
+ * Removes a review.
+ *
+ *
+ * @param {Object} req - The request object from the client, containing the review ID.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
+
 const remove = async (req, res) => {
   try {
     const { reviewId } = req.params;
@@ -41,6 +58,15 @@ const remove = async (req, res) => {
     responseHandler.error(res);
   }
 };
+
+/**
+ * Retrieves all reviews created by the currently authenticated user.
+ *
+ *
+ * @param {Object} req - The request object from the client.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
 
 const getReviewsOfUser = async (req, res) => {
   try {

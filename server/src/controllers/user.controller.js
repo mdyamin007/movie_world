@@ -2,6 +2,18 @@ import responseHandler from "../handlers/response.handler.js";
 import userModel from "../models/user.model.js";
 import jsonwebtoken from "jsonwebtoken";
 
+/**
+ * Handles user registration.
+ *
+ * Validates the request to ensure the username does not already exist, creates
+ * a new user, and returns a JWT token for authentication. If an error occurs,
+ * responds with a 500 Internal Server Error.
+ *
+ * @param {Object} req - The request object from the client, containing user details.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
+
 const create = async (req, res) => {
   try {
     const { username, password, fullName } = req.body;
@@ -32,6 +44,19 @@ const create = async (req, res) => {
     responseHandler.error(res);
   }
 };
+
+/**
+ * Handles user login.
+ *
+ * Validates the provided credentials and returns a JWT token if authentication
+ * is successful. If the user does not exist or the password is incorrect,
+ * responds with a 400 Bad Request. If an error occurs, responds with a 500
+ * Internal Server Error.
+ *
+ * @param {Object} req - The request object from the client, containing login credentials.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
 
 const login = async (req, res) => {
   try {

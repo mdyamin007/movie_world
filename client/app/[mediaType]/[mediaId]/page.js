@@ -3,6 +3,21 @@ import mediaApi from "@/lib/media.api";
 import tmdbConfigs from "@/config/tmdb.configs";
 
 // Convert the component to an async function to fetch data on the server
+/**
+ * Page component that displays media details, including an image, trailer video,
+ * overview, rating, and cast information.
+ *
+ * This component fetches media details based on the provided `mediaType` and `mediaId`
+ * from the server-side and displays various media-related information.
+ *
+ * @param {Object} params - The parameters for the media.
+ * @param {string} params.mediaType - The type of media (e.g., "movie", "tv").
+ * @param {string} params.mediaId - The unique identifier for the media.
+ *
+ * @returns {JSX.Element} The rendered Page component.
+ */
+
+// Convert the component to an async function to fetch data on the server
 export default async function Page({ params }) {
   const { mediaType, mediaId } = params;
 
@@ -20,6 +35,9 @@ export default async function Page({ params }) {
   const genres = response.genres.splice(0, 2);
   const isFavorite = response.isFavorite;
 
+  // if (media) console.log(media);
+  // console.log(genres);
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-wrap md:flex-nowrap gap-8">
@@ -31,6 +49,16 @@ export default async function Page({ params }) {
             alt="Additional Movie Image"
             className="w-full h-auto rounded-lg shadow-lg"
           />
+          <div className="flex space-x-2 mt-4">
+            {genres.map((genre, index) => (
+              <span
+                key={index}
+                className="bg-blue-500 text-white text-sm px-2 py-1 rounded"
+              >
+                {genre.name}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="md:w-1/2 w-full">

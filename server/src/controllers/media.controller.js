@@ -5,6 +5,14 @@ import favoriteModel from "../models/favorite.model.js";
 import reviewModel from "../models/review.model.js";
 import jwtMiddleware from "../middleware/jwt.middleware.js";
 
+/**
+ * Retrieves a list of media items based on the provided media type, category, and page.
+ *
+ * @param {Object} req - The request object from the client, containing query parameters.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
+
 const getList = async (req, res) => {
   try {
     const { page } = req.query;
@@ -22,6 +30,14 @@ const getList = async (req, res) => {
   }
 };
 
+/**
+ * Retrieves a list of genres for the specified media type.
+ *
+ * @param {Object} req - The request object from the client, containing media type parameters.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
+
 const getGenres = async (req, res) => {
   try {
     const { mediaType } = req.params;
@@ -33,6 +49,14 @@ const getGenres = async (req, res) => {
     responseHandler.error(res);
   }
 };
+
+/**
+ * Searches for media items based on the provided query and media type.
+ *
+ * @param {Object} req - The request object from the client, containing query and media type parameters.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
 
 const search = async (req, res) => {
   try {
@@ -50,6 +74,15 @@ const search = async (req, res) => {
     responseHandler.error(res);
   }
 };
+
+/**
+ * Retrieves detailed information about a specific media item, including credits, videos, recommendations, and images.
+ * Also checks if the media is marked as a favorite by the current user, if authenticated.
+ *
+ * @param {Object} req - The request object from the client, containing media type and ID parameters.
+ * @param {Object} res - The response object to send the response.
+ * @returns {void}
+ */
 
 const getDetail = async (req, res) => {
   try {
