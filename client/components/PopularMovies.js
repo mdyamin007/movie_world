@@ -109,10 +109,10 @@ export default function PopularMovies({ mediaType, mediaCategory }) {
               className="w-full h-80 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
             />
             <div className="mt-2">
-              <h3 className="text-lg font-semibold text-gray-800">
+              <h3 className="text-lg font-semibold dark:text-white text-black">
                 {media.title || media.name}
               </h3>
-              <p className="text-gray-600 text-sm mt-1">
+              <p className="dark:text-white text-black text-sm mt-1">
                 Rating:{" "}
                 {(Math.round(media.vote_average * 100) / 100).toFixed(1)}
               </p>
